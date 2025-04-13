@@ -215,51 +215,25 @@ export default function TrackingPage() {
 
           {/* Tracking Animation */}
           <Card>
-            <CardHeader>
-              <CardTitle>Shipment Progress</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-40 relative bg-gray-50 rounded-lg overflow-hidden">
-                {/* Origin Point */}
-                <div className="absolute left-10 top-1/2 transform -translate-y-1/2">
-                  <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                  <p className="text-xs mt-1">{shipmentData.origin}</p>
-                </div>
-                
-                {/* Destination Point */}
-                <div className="absolute right-10 top-1/2 transform -translate-y-1/2">
-                  <div className="w-4 h-4 rounded-full bg-gray-300"></div>
-                  <p className="text-xs mt-1">{shipmentData.destination}</p>
-                </div>
-                
-                {/* Path Line */}
-                <div className="absolute left-14 right-14 top-1/2 h-1 bg-gray-200 transform -translate-y-1/2"></div>
-                
-                {/* Progress Line */}
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "60%" }}
-                  transition={{ duration: 2 }}
-                  className="absolute left-14 top-1/2 h-1 bg-green-500 transform -translate-y-1/2"
-                ></motion.div>
-                
-                {/* Moving Package */}
-                <motion.div
-                  initial={{ left: "10%" }}
-                  animate={{ left: "60%" }}
-                  transition={{ duration: 2 }}
-                  className="absolute top-1/2 transform -translate-y-1/2"
-                >
-                  <motion.div 
-                    animate={{ y: [0, -10, 0] }} 
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                  >
-                    <Package size={24} className="text-blue-500" />
-                  </motion.div>
-                </motion.div>
-              </div>
-            </CardContent>
-          </Card>
+  <CardHeader>
+    <CardTitle>Shipment Progress</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="relative w-full h-3 rounded-full bg-gray-200 overflow-hidden">
+      {/* Static blue filled progress */}
+      <div className="relative h-full bg-blue-600 rounded-full" style={{ width: "60%" }}>
+        {/* Shimmer animation inside the blue part */}
+        <div className="absolute top-0 left-0 h-full w-full shimmer-overlay"></div>
+      </div>
+    </div>
+
+    <div className="flex justify-between text-sm text-muted-foreground mt-2">
+      <span>New York</span>
+      <span>San Fransisco</span>
+    </div>
+  </CardContent>
+</Card>
+
 
           {/* Timeline */}
           <Card>

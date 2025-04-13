@@ -203,9 +203,9 @@ export default function ShipmentMap({ from, to, current }: Props) {
       <Marker position={[to.lat, to.lon]} icon={destinationIcon} />
       
       {/* Current location marker */}
-      {current && (
+      {/* {current && (
         <Marker position={[current.lat, current.lon]} icon={currentLocationIcon} />
-      )}
+      )} */}
       
       {/* Full route path */}
       {routeData.length > 0 && (
